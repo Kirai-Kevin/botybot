@@ -13,7 +13,7 @@
 ### Setup
 1. Clone the repository:
    ```
-   git clone 
+   git clone https://github.com/Kirai-Kevin/botybot.git
    cd botybot
    ```
 
