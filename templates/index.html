@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Content Generation and Moderation Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Driven Content Generation and Moderation Bot</h1>
+        
+        <p>Welcome, {{ current_user.username }}! <a href="{{ url_for('logout') }}">Logout</a></p>
+
+        <button id="darkModeToggle" class="dark-mode-toggle">
+            <img width="24" height="24" src="https://img.icons8.com/external-others-amoghdesign/24/external-mode-multimedia-flat-30px-others-amoghdesign.png" alt="mode toggle">
+        </button>
+
+        <div class="section">
+            <h2>Content Generation</h2>
+            <select id="guidelinesType">
+                <option value="Community Guidelines">Community Guidelines</option>
+                <option value="Company Guidelines">Company Guidelines</option>
+                <option value="Meta Guidelines">Meta Guidelines</option>
+            </select>
+            <textarea id="companyGuidelines" placeholder="Enter company guidelines here" style="display: none;"></textarea>
+            <input type="text" id="targetAudience" placeholder="Target Audience">
+            <input type="text" id="emotion" placeholder="Emotion">
+            <input type="text" id="topic" placeholder="Topic">
+            <button onclick="generateContent()">Generate Content</button>
+            <div id="generationLoader" class="loader"></div>
+            <div id="generatedContent" class="result"></div>
+        </div>
+
+        <div class="section">
+            <h2>Content Moderation</h2>
+            <textarea id="contentToModerate" placeholder="Enter content to moderate"></textarea>
+            <button onclick="moderateContent()">Moderate Content</button>
+            <div id="moderationLoader" class="loader"></div>
+            <div id="moderationResult" class="result"></div>
+        </div>
+
+        <div class="section">
+            <h2>Idea to Multiple Posts</h2>
+            <textarea id="idea" placeholder="Enter your idea"></textarea>
+            <input type="number" id="numPosts" placeholder="Number of posts">
+            <button onclick="generateMultiplePosts()">Generate Multiple Posts</button>
+            <div id="multiplePostsLoader" class="loader"></div>
+            <div id="multiplePosts" class="result"></div>
+        </div>
+
+        <div class="section">
+            <h2>Grow Personal Brand</h2>
+            <input type="text" id="platform" placeholder="Social Media Platform">
+            <input type="text" id="niche" placeholder="Your Niche">
+            <button onclick="generatePersonalBrandContent()">Generate Personal Brand Content</button>
+            <div id="personalBrandLoader" class="loader"></div>
+            <div id="personalBrandContent" class="result"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
